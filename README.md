@@ -28,3 +28,9 @@ Continue building your app on:
 2. Deploy your chats from the v0 interface
 3. Changes are automatically pushed to this repository
 4. Vercel deploys the latest version from this repository
+
+## Optional - SSL Configuration (handled by nginx)
+
+SSL_CERT_PATH=/etc/letsencrypt/live/onlywriteai.com/fullchain.pem
+SSL_KEY_PATH=/etc/letsencrypt/live/onlywriteai.com/privkey.pem
+

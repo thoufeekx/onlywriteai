@@ -1,6 +1,14 @@
 # Multi-stage build for production frontend
 FROM node:18-alpine AS builder
 
+# Accept build-time arguments for public environment variables
+ARG NEXT_PUBLIC_ONLYOFFICE_URL
+ARG NEXT_PUBLIC_APP_URL
+
+# Set them as environment variables for the build process
+ENV NEXT_PUBLIC_ONLYOFFICE_URL=$NEXT_PUBLIC_ONLYOFFICE_URL
+ENV NEXT_PUBLIC_APP_URL=$NEXT_PUBLIC_APP_URL
+
 WORKDIR /app
 
 # Copy package files first for better caching
