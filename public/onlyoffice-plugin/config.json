@@ -1,0 +1,21 @@
+{
+  "name": "OnlyWriteAI Bridge",
+  "guid": "onlywriteai-bridge-plugin",
+  "version": "1.0.0",
+  "variations": [
+    {
+      "description": "Bridge plugin for OnlyWriteAI chat integration",
+      "url": "index.html",
+      "icons": ["icon.png"],
+      "isViewer": false,
+      "EditorsSupport": ["word"],
+      "isVisual": false,
+      "isModal": false,
+      "isInsideMode": true,
+      "initDataType": "none",
+      "initData": "",
+      "buttons": [],
+      "events": ["onDocumentContentReady"]
+    }
+  ]
+}
