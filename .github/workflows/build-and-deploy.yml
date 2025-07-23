@@ -47,6 +47,9 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          build-args: |
+            NEXT_PUBLIC_ONLYOFFICE_URL=${{ secrets.NEXT_PUBLIC_ONLYOFFICE_URL }}
+            NEXT_PUBLIC_APP_URL=${{ secrets.NEXT_PUBLIC_APP_URL }}
 
       - name: Image digest
         run: echo ${{ steps.meta.outputs.digest }}
