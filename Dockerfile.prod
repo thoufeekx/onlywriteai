@@ -21,6 +21,11 @@ RUN npm ci --silent
 # Copy source code
 COPY . .
 
+
+# Copy the source document to the documents directory
+RUN mkdir -p /app/documents
+COPY source/OnlyWriteAI.docx /app/documents/OnlyWriteAI.docx
+
 # Build the application
 RUN npm run build
 
@@ -33,7 +38,11 @@ WORKDIR /app
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
+# Copy documents directory to runtime
+COPY --from=builder /app/documents ./documents
+
 # Copy built application
+
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 COPY --from=builder /app/public ./public
