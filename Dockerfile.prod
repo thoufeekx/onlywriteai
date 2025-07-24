@@ -48,7 +48,11 @@ COPY --from=builder /app/.next/static ./.next/static
 COPY --from=builder /app/public ./public
 
 # Set ownership
+RUN chown -R nextjs:nodejs /app/documents  
+
+
 RUN chown -R nextjs:nodejs /app
+
 USER nextjs
 
 # Expose port
